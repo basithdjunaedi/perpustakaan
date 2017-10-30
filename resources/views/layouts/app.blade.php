@@ -8,10 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Perpustakaan</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -29,7 +32,13 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Perpustakaan
+                    </a>
+                    <a class="navbar-brand" href="{{ route('members.index') }}">
+                        Member
+                    </a>
+                    <a class="navbar-brand" href="{{ route('books.index') }}">
+                        Book
                     </a>
                 </div>
 
@@ -73,8 +82,10 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
+    @yield('script')
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

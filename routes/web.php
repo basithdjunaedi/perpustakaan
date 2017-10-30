@@ -11,10 +11,41 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('member','MembersController', [
+  'names' => [
+    'index' => 'members.index',
+    'create' => 'members.create',
+    'store' => 'members.store',
+    'edit' => 'members.edit',
+    'update' => 'members.update',
+    'destroy' => 'members.destroy'
+  ]
+]);
+
+Route::resource('book','BooksController', [
+  'names' => [
+    'index' => 'books.index',
+    'create' => 'books.create',
+    'store' => 'books.store',
+    'edit' => 'books.edit',
+    'update' => 'books.update',
+    'destroy' => 'books.destroy'
+  ]
+]);
+
+Route::get('/', 'RentalsController@index');
+Route::resource('rental','RentalsController', [
+  'names' => [
+    'create' => 'rentals.create',
+    'store' => 'rentals.store',
+    'edit' => 'rentals.edit',
+    'update' => 'rentals.update',
+    'show' => 'rentals.show',
+    'destroy' => 'rentals.destroy'
+  ]
+]);

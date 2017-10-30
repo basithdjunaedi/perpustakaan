@@ -1,95 +1,56 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+//this will add laravel’s default navbar to your page
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+@section('content')
+<div class="container">
+                @if (Auth::check())
+                        <h2>Books List</h2>
+                        <a href="/book" class="btn btn-primary">Add new Book</a>
+                        <table class="table">
+                            <thead><tr>
+                              <th colspan="2">ISBN</th>
+                              <th colspan="2">Nama Buku</th>
+                              <th colspan="2">Penerbit</th>
+                                <th colspan="2">Pengarang</th>
+                                <th colspan="2">Tahun</th>
+                                <th colspan="2">Aksi</th>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+                            </tr>
+                        </thead>
+                        <tbody>@foreach($user->books as $book)
+                            <tr>
+                                <td colspan="2">
+                                    {{$book->isbn}}
+                                </td>
+                                <td colspan="2">
+                                    {{$book->nama_buku}}
+                                </td>
+                                <td colspan="2">
+                                    {{$book->penerbit}}
+                                </td>
+                                <td colspan="2">
+                                    {{$book->pengarang}}
+                                </td>
+                                <td colspan="2">
+                                    {{$book->tahun}}
+                                </td>
+                                <td colspan="2">
 
-            .full-height {
-                height: 100vh;
-            }
+                                    <form action="/book/{{$book->id}}">
+                                        <button type="submit" name="edit" class="btn btn-primary">Edit</button>
+                                        <button type="submit" name="delete" formmethod="POST" class="btn btn-danger">Delete</button>
+                                        {{ csrf_field() }}
+                                    </form>
+                                </td>
+                            </tr>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
-            .position-ref {
-                position: relative;
-            }
+                        @endforeach</tbody>
+                        </table>
+                @else
+                    <h3>You need to log in. <a href="/login">Click here to login</a></h3>
+                @endif
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+</div>
+@endsection
