@@ -40,15 +40,24 @@
                                 @endif
                                 <td colspan="2">
                                   <div class="btn-group">
-                                    <a href="{{ route('rentals.edit', $rentals->id) }}" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                                    
+                                    @if($rentals->status === 0)
+                                    <button type="button" class="btn btn-success" onclick="event.preventDefault();document.getElementById('terima-form-{{$key}}').submit();"><i class="glyphicon glyphicon-ok"></i></button>
+                                    <form id="terima-form-{{$key}}" action="{{ route('rentals.update', $rentals->id) }}" method="post" style="display: none;">
+                                      <input type="hidden" name="_method" value="put">
+                                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    </form>
+                                    @endif
                                     <button type="button" class="btn btn-danger" onclick="event.preventDefault();document.getElementById('tolak-form-{{$key}}').submit();"><i class="glyphicon glyphicon-remove"></i></button>
                                     <form id="tolak-form-{{$key}}" action="{{ route('rentals.destroy', $rentals->id) }}" method="post" style="display: none;">
                                       <input type="hidden" name="_method" value="delete">
                                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     </form>
                                   </div>
+
                                 </td>
                             </tr>
+
 
 
                         @endforeach</tbody>

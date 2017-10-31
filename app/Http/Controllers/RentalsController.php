@@ -86,10 +86,13 @@ class RentalsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+     public function update(Request $request, Rental $rental)
+     {
+       $rental->status = $rental->status ? 0 : 1;
+       $rental->save();
+       // return $guest;
+       return redirect('rental');
+     }
 
     /**
      * Remove the specified resource from storage.
@@ -97,8 +100,9 @@ class RentalsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Rental $rental)
     {
-        //
+      $rental->delete();
+       return redirect('rental');
     }
 }
