@@ -67,10 +67,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 <script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
-    $('.datepicker').datepicker({
-    format: 'yy-mm-dd',
-    startDate: '-3d'
-    })
+    $.fn.datepicker.defaults.format = "yyyy/mm/dd";
 </script>
 <script src="{{ asset('vendor/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js') }}"></script>
