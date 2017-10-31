@@ -17,7 +17,7 @@
       <div class="form-group">
         <label class="control-label" for="scheduleTime">Waktu Rental</label>
         <div class="input-group date" data-provide="datepicker">
-          <input name="rental_date" placeholder="masukkan waktu rental" type="text" class="form-control">
+          <input name="rental_date" placeholder="masukkan waktu rental" type="text" class="form-control" data-date-end-date="0d">
           <span style="color:red;">{!! $errors->has('rental_date')?$errors->first('rental_date'):'' !!}</span>
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
