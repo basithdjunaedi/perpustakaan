@@ -3,7 +3,7 @@
 //this will add laravel’s default navbar to your page
 @section('css')
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+<link rel="stylesheet" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" />
 @endsection
 @section('content')
 <div class="container">
@@ -16,22 +16,22 @@
     <form class="form-horizontal" action="{{ route('rentals.store') }}" method="post" >
       <div class="form-group">
         <label class="control-label" for="scheduleTime">Waktu Rental</label>
-        <div class='input-group date' id='datetimepicker1'>
-          <input name="rental_date" placeholder="Masukkan Waktu Rental" type='text' class="form-control" />
+        <div class="input-group date" data-provide="datepicker">
+          <input name="rental_date" placeholder="masukkan waktu rental" type="text" class="form-control" data-date-end-date="0d">
           <span style="color:red;">{!! $errors->has('rental_date')?$errors->first('rental_date'):'' !!}</span>
-          <span class="input-group-addon">
+          <div class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
-          </span>
+          </div>
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label" for="scheduleTime">Waktu Pengembalian</label>
-        <div class='input-group date' id='datetimepicker1'>
+        <label class="control-label" for="scheduleTime">Waktu Rental</label>
+        <div class="input-group date" data-provide="datepicker">
           <input name="return_date" placeholder="Masukkan Waktu Pengembalian" type='text' class="form-control" />
           <span style="color:red;">{!! $errors->has('return_date')?$errors->first('return_date'):'' !!}</span>
-          <span class="input-group-addon">
+          <div class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
-          </span>
+          </div>
         </div>
       </div>
       <div class="form-group">
@@ -63,12 +63,11 @@
 @endsection
 @section('script')
 <script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
-$('#datetimepicker1').datetimepicker({
-  format: 'YYYY-MM-DD HH:mm',
-});
+    $.fn.datepicker.defaults.format = "yyyy/mm/dd";
 </script>
 <script src="{{ asset('vendor/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js') }}"></script>
