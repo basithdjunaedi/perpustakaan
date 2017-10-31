@@ -39,6 +39,7 @@ class BooksController extends Controller
       $book->tahun = $request->tahun;
       $book->user_id = Auth::id();
       $book->save();
+      \Session::flash('flash_message','Buku berhasil ditambahkan');
       return redirect('book');
     }
 
@@ -76,6 +77,7 @@ class BooksController extends Controller
     public function destroy(Book $book)
     {
       $book->delete();
+      \Session::flash('flash_message_delete','Buku berhasil dihapus.');
        return redirect('book');
     }
 }

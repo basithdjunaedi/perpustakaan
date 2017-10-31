@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
-//this will add laravel’s default navbar to your page
-
 @section('content')
 <div class="container">
+  @if(Session::has('flash_message'))
+      <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+  @endif
+  @if(Session::has('flash_message_delete'))
+      <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message_delete') !!}</em></div>
+  @endif
                 @if (Auth::check())
                         <h2>Books List</h2>
                         <a href="{{ route('books.create') }}" class="btn btn-primary">Add new Book</a>
@@ -57,3 +61,9 @@
 
 </div>
 @endsection
+<script src="https://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+  setTimeout(function() {
+          $('div.alert').fadeOut('fast');
+        }, 5000);
+</script>

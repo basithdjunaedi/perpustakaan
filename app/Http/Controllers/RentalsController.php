@@ -13,13 +13,13 @@ class RentalsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-      $rental = Rental::all();
-      $book = Book::all();
-      $member = Member::all();
-      return view('website.rental.index',compact('rental','book','member'));
-    }
+     public function index()
+     {
+       $rental = Rental::all();
+       $book = Book::all();
+       $member = Member::all();
+       return view('website.rental.index',compact('rental','book','member'));
+     }
 
     /**
      * Show the form for creating a new resource.
@@ -54,6 +54,7 @@ class RentalsController extends Controller
       $rental->book_id = $request->book_id;
       $rental->status = 0;
       $rental->save();
+      \Session::flash('flash_message','Data berhasil ditambahkan');
       return redirect('rental');
     }
 
@@ -103,6 +104,7 @@ class RentalsController extends Controller
     public function destroy(Rental $rental)
     {
       $rental->delete();
+      \Session::flash('flash_message_delete','Data berhasil dihapus.');
        return redirect('rental');
     }
 }
