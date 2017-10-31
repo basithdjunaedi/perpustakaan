@@ -53,6 +53,7 @@ class MembersController extends Controller
       $member->alamat = $request->alamat;
       $member->no_hp = $request->no_hp;
       $member->save();
+       \Session::flash('flash_message','Data berhasil ditambahkan');
       return redirect('member');
     }
 
@@ -116,6 +117,7 @@ class MembersController extends Controller
     public function destroy(Member $member)
     {
       $member->delete();
+      \Session::flash('flash_message_delete','Member berhasil dihapus.');
        return redirect('member');
     }
 }

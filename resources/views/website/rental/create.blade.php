@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-//this will add laravel’s default navbar to your page
 @section('css')
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" />
