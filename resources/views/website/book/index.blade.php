@@ -9,8 +9,8 @@
       <div class="alert alert-danger"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message_delete') !!}</em></div>
   @endif
                 @if (Auth::check())
-                        <h2>Books List</h2>
-                        <a href="{{ route('books.create') }}" class="btn btn-primary">Add new Book</a>
+                        <h2>Daftar Buku</h2>
+                        <a href="{{ route('books.create') }}" class="btn btn-primary">Tambah buku</a>
                         <table class="table">
                             <thead><tr>
                               <th colspan="2">ISBN</th>
@@ -56,7 +56,7 @@
                         @endforeach</tbody>
                         </table>
                 @else
-                    <h3>You need to log in. <a href="/login">Click here to login</a></h3>
+                    <h3>You need to log in. <a href="{{ route('login') }}">Click here to login</a></h3>
                 @endif
 
 </div>

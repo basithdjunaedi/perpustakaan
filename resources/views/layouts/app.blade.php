@@ -32,13 +32,13 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        Perpustakaan
+                        Data Peminjaman
                     </a>
                     <a class="navbar-brand" href="{{ route('members.index') }}">
-                        Member
+                        Data Member
                     </a>
                     <a class="navbar-brand" href="{{ route('books.index') }}">
-                        Book
+                        Data Buku
                     </a>
                 </div>
 

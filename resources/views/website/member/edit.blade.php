@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<h1>Edit Member</h1>
+	<h1>Sunting Member</h1>
   <form action="{{ route('members.update', $member->id) }}" method="post" >
     <div class="form-group">
       <label class="control-label" for="title">No KTP</label>

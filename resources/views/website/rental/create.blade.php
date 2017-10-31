@@ -8,15 +8,15 @@
 <div class="container">
   <div class="panel-heading">
     <div class="panel-title">
-      <h3>Rental Perpustakaan | Buat Rental</h3>
+      <h3>Tambah Data Peminjaman</h3>
     </div>
   </div>
   <div class="panel-body">
     <form class="form-horizontal" action="{{ route('rentals.store') }}" method="post" >
       <div class="form-group">
-        <label class="control-label" for="scheduleTime">Waktu Rental</label>
+        <label class="control-label" for="scheduleTime">Tanggal peminjaman</label>
         <div class="input-group date" data-provide="datepicker">
-          <input name="rental_date" placeholder="masukkan waktu rental" type="text" class="form-control" data-date-end-date="0d">
+          <input name="rental_date" placeholder="masukkan tanggal peminjaman" type="text" class="form-control" data-date-end-date="0d">
           <span style="color:red;">{!! $errors->has('rental_date')?$errors->first('rental_date'):'' !!}</span>
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
@@ -24,9 +24,9 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label" for="scheduleTime">Waktu Rental</label>
+        <label class="control-label" for="scheduleTime">Batas waktu pengembalian</label>
         <div class="input-group date" data-provide="datepicker">
-          <input name="return_date" placeholder="Masukkan Waktu Pengembalian" type='text' class="form-control" />
+          <input name="return_date" placeholder="masukkan batas waktu pengembalian" type='text' class="form-control" />
           <span style="color:red;">{!! $errors->has('return_date')?$errors->first('return_date'):'' !!}</span>
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-calendar"></span>
@@ -53,7 +53,7 @@
       </div>
       <div class="form-group">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input class="btn btn-primary" type="submit" name="save" value="Save">
+        <input class="btn btn-primary" type="submit" name="save" value="Simpan">
       </div>
     </form>
   </div>

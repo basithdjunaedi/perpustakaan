@@ -4,7 +4,7 @@
 <div class="container">
   <div class="panel-heading">
     <div class="panel-title">
-      <h3>  Buku Perpustakaan | Buat Buku</h3>
+      <h3>  Tambah Data Buku</h3>
     </div>
   </div>
   <div class="panel-body">
@@ -38,7 +38,7 @@
     </div>
     <div class="form-group">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <input class="btn btn-primary" type="submit" name="save" value="Save">
+      <input class="btn btn-primary" type="submit" name="save" value="Simpan">
     </div>
 </form>
 </div>

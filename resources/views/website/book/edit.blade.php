@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<h1>Edit the Book</h1>
+	<h1>Sunting Buku</h1>
   <form action="{{ route('books.update', $book->id) }}" method="post" >
 
     <div class="form-group">

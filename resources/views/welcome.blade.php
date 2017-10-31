@@ -47,7 +47,7 @@
                         @endforeach</tbody>
                         </table>
                 @else
-                    <h3>You need to log in. <a href="/login">Click here to login</a></h3>
+                    <h3>You need to log in. <a href="{{ route('login') }}">Click here to login</a></h3>
                 @endif
 
 </div>
