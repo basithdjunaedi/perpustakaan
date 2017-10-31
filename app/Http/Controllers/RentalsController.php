@@ -41,7 +41,20 @@ class RentalsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+        'rental_date' => 'required',
+        'return_date' => 'required',
+        'member_id' => 'required',
+        'book_id'=> 'required',
+      ]);
+      $rental = new Rental;
+      $rental->rental_date = $request->rental_date;
+      $rental->return_date = $request->return_date;
+      $rental->member_id = $request->member_id;
+      $rental->book_id = $request->book_id;
+      $rental->status = 0;
+      $rental->save();
+      return redirect('rental');
     }
 
     /**
